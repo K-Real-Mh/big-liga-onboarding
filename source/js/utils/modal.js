@@ -33,20 +33,34 @@ const onEscPress = (evt, modal, callback) => {
   }
 };
 
+const onEnterPress = (evt, modal, callback) => {
+  const isEnterKey = evt.key === 'Enter' || evt.key === 'Ent';
+
+  if (isEnterKey && modal.classList.contains('modal--active')) {
+    evt.preventDefault();
+    closeModal(modal, callback);
+  }
+};
+
+
 const setModalListeners = (modal, closeCallback, preventScrollLock) => {
   const overlay = modal.querySelector('.modal__overlay');
   const closeBtn = modal.querySelector('.modal__close-btn');
 
-  closeBtn.addEventListener('click', () => {
-    closeModal(modal, closeCallback, preventScrollLock);
-  });
-
-  overlay.addEventListener('click', () => {
-    closeModal(modal, closeCallback, preventScrollLock);
-  });
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      closeModal(modal, closeCallback, preventScrollLock);
+    });
+  }
+  if (overlay) {
+    overlay.addEventListener('click', () => {
+      closeModal(modal, closeCallback, preventScrollLock);
+    });
+  }
 
   document.addEventListener('keydown', (evt) => {
     onEscPress(evt, modal, closeCallback, preventScrollLock);
+    onEnterPress(evt, modal, closeCallback, preventScrollLock);
   });
 };
 

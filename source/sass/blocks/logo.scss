@@ -1,0 +1,49 @@
+.logo {
+
+  &__name {
+
+  }
+
+  &__main {
+
+  }
+
+  &__text {
+
+  }
+}
+
+.modal {
+  .logo {
+    position: absolute;
+    top: 50vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+      @include viewport--md {
+        width: 550px;
+        height: 70px;
+      }
+    &__name {
+      animation: 1.5s fade-from-right;
+    }
+    &__text {
+      animation: 1.5s fade-from-left;
+    }
+  }
+
+  &--preload {
+    .logo {
+
+      &__name {
+        animation: none;
+        transform: translateX(100%);
+      }
+
+
+      &__text {
+        animation: none;
+        transform: translateX(-100%);
+      }
+    }
+  }
+}

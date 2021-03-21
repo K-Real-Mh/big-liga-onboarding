@@ -13,13 +13,19 @@
 @import "global/reboot";
 @import "global/utils";
 @import "global/container";
+@import "global/keyframes";
 
 // Blocks
 //---------------------------------
 
 @import "blocks/header";
-
-
+@import "blocks/modals";
+@import "blocks/preloader";
+@import "blocks/logo";
+@import "blocks/main";
+@import "blocks/logo-dino";
+@import "blocks/icon-menu";
+@import "blocks/device-modal";
 // используйте это для отключения ховеров на тач устройствах
 // ! но не используйте это для текстовых полей ( input, textarea )
 // также для любых transition обязательно указывайте transition-property

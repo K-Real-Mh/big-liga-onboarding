@@ -1,0 +1,108 @@
+.logo-dino {
+  display: grid;
+  gap: 35px;
+
+  &__text {
+    font-size: 30px;
+    line-height: 40px;
+  }
+
+}
+
+.main {
+  .logo-dino {
+    @include viewport--md {
+      display: none;
+    }
+
+    &__logo {
+      &-main {
+        animation: 0.5s fade 2s backwards;
+      }
+
+      &-lighting-right-center {
+        animation: 1s one-hit-right 2.1s backwards;
+        path {
+          animation: infinite strikes-right 3.1s
+        }
+      }
+
+      &-lighting-left {
+        animation: 1s one-hit-left 2.2s backwards;
+        path {
+          animation: infinite strikes-left 3.2s;
+        }
+
+      }
+
+      &-lighting-right {
+        animation: 1s one-hit-right 2.3s backwards;
+        path {
+          animation: infinite strikes-right 3.3s;
+        }
+      }
+
+      &-lighting-left-center {
+        animation: 1s one-hit-left 2.4s backwards;
+        path {
+          animation: infinite strikes-left 3.4s;
+        }
+      }
+
+      &-spear {
+        animation: infinite strikes-right 2.5s;
+      }
+
+      &-breath {
+        animation: infinite breathing 2.5s;
+      }
+    }
+
+    &__text {
+      animation: 1.5s fade-from-left 0.5s backwards;
+    }
+  }
+}
+
+.scroll-lock {
+  .main {
+    .logo-dino {
+
+      &__logo {
+        &-main, &-lighting-right-center, &-lighting-left, &-lighting-right, &-lighting-left-center, &-spear, &-breath  {
+          animation: none;
+          opacity: 0;
+        }
+      }
+
+      &__text {
+        transform: translateX(-100vw);
+        animation: none;
+      }
+    }
+  }
+}
+
+.device-modal {
+
+  .logo-dino {
+    max-width: 352px;
+    justify-items: center;
+    &__logo {
+
+      &-lighting-right-center, &-lighting-left, &-lighting-right, &-lighting-left-center, &-spear-flag, &-breath {
+
+        path {
+          fill: $color-default-white;
+        }
+
+      }
+
+    }
+
+    &__text {
+      color: $color-default-white;
+    }
+
+  }
+}

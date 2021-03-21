@@ -1,0 +1,35 @@
+.main {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 6fr 4fr;
+  gap: 40px;
+  align-content: center;
+  align-items: start;
+  &__heading {
+    animation: 1.5s fade-from-right 0.5s;
+    animation-fill-mode: backwards;
+    font-weight: 400;
+    font-size: 96px;
+    line-height: 96px;
+    color: $color-neon-blue;
+  }
+
+  &__modal-btn {
+    display: none;
+    @include viewport--md {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100vh;
+    }
+  }
+}
+
+.scroll-lock {
+  .main {
+    &__heading {
+      transform: translateX(100vw);
+      animation: none;
+    }
+  }
+}

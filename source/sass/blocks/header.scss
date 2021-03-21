@@ -1,3 +1,91 @@
 .header {
   display: block;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 74px;
+  }
+
+  &__logo {
+    .logo {
+      animation: 0.5s fade-from-top;
+    }
+  }
+
+  &__nav {
+    display: inline-grid;
+    grid-auto-flow: column;
+    align-items: center;
+    gap: 24px;
+    @include viewport--md {
+      position: fixed;
+      left: 0;
+      top: -100%;
+      width: 100%;
+      height: 100vh;
+      gap: 30px;
+      grid-auto-flow: row;
+      align-content: center;
+      justify-content: center;
+      justify-items: center;
+      transition: top $default-transition-settings;
+      background: $color-default-white;
+      z-index: -1;
+      &._active {
+        top: 0px;
+
+      }
+    }
+  }
+
+  &__nav-item {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+    transition: color $default-transition-settings;
+    @include viewport--md {
+      font-size: 28px;
+      line-height: 28px;
+    }
+    &--arrow {
+      position: relative;
+
+      &::after {
+        top: 0px;
+        right: -9px;
+        content: '';
+        position: absolute;
+        height: 9px;
+        width: 9px;
+        background: url("../img/svg/header/arrow.svg") 0 0/100% no-repeat;
+        @include viewport--md {
+          top: 3px;
+        }
+      }
+    }
+
+    @media (hover: hover), screen and (min-width: 0\0) {
+      &:hover,
+      &:focus {
+        color: $color-neon-blue;
+        &::after {
+          animation: infinite arrow-hover;
+        }
+      }
+    }
+  }
+}
+
+.scroll-lock {
+  .header {
+    &__logo {
+      .logo {
+        animation: none;
+      }
+    }
+  }
 }
